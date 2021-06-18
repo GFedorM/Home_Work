@@ -1,0 +1,8 @@
+﻿INSERT INTO PACIENT_DOCTORS(ID_DOCTORS,ID_PACIENT) VALUES
+(1,3),
+(2,3),
+(3,4),
+(4,3),
+(1,4),
+(4,1),
+(3,3);
