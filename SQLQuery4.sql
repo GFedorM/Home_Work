@@ -39,7 +39,7 @@ FROM Production.Product AS p1
 WHERE P1.ListPrice =
     (SELECT MAX (ListPrice)
     FROM Production.Product AS p2
-    WHERE p2.ProductSubcategoryID = P1.ProductSubcategoryID)
+    WHERE p2.ProductSubcategoryID = p1.ProductSubcategoryID)
 
 --Показать товары, цена которых больше средней цены  в любой модели продуктов (Таблица Production.Product)
 SELECT [Name]
