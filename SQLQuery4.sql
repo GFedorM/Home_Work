@@ -46,21 +46,10 @@ SELECT [Name]
 ,ListPrice
 ,ProductModelID
 FROM Production.Product
-WHERE ListPrice > ANY
+WHERE ProductModelID IS NOT NULL AND ListPrice > ANY
       ( SELECT AVG(ListPrice)
       FROM Production.Product
       WHERE ListPrice > 0
       AND ProductModelID IS NOT NULL
       GROUP BY ProductModelID )
-EXCEPT SELECT [Name]
-,ListPrice
-,ProductModelID
-FROM Production.Product
-WHERE ProductModelID IS NOT NULL
-AND ListPrice > ANY 
-    (SELECT AVG(ListPrice)
-    FROM Production.Product
-    WHERE ListPrice > 0
-    AND ProductModelID IS NOT NULL
-    GROUP BY ProductModelID)
-ORDER BY ProductModelID DESC
+	  
